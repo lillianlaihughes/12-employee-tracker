@@ -1,0 +1,5 @@
+# Create a .gitignore file and include anything not to be tracked or uploaded to GitHub. 
+# Be sure to create your .gitignore file before installing any npm dependencies. OOPS!
+
+node_modules/
+.DS_Store/ 
