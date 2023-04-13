@@ -3,12 +3,12 @@ USE employeeDB;
 INSERT INTO departments (dept_name)
 VALUES
 ('Finance'),
-(''),
-(''),
-(''),
-(''),
-(''),
-('');
+('Amusement Parks'),
+('Public Relations'),
+('Legal'),
+('News'),
+('Operations'),
+('HR');
 
 INSERT INTO departments (dept_name)
 VALUES

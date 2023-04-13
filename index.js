@@ -4,7 +4,8 @@ const table = require('console.table');
 const prompt = require('inquirer');
 // const sequel = require('mysql2');
 
-const db = require('./db'); // check that this is the correct path syntax
+// check that this is the correct path syntax
+// const db = require('/db'); 
 
 init();
 
