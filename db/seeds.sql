@@ -6,34 +6,27 @@ VALUES
 ('Amusement Parks'),
 ('Public Relations'),
 ('Legal'),
-('News'),
+('Broadcast Media'),
+('Print Media'),
 ('Operations'),
 ('HR');
 
-INSERT INTO departments (dept_name)
-VALUES
-('Finance'),
-(''),
-(''),
-(''),
-(''),
-(''),
-('');
-
 INSERT INTO roles (role_title, salary, dept_id)
 VALUES
-('CFO', 250000, 1),
-(''),
-(''),
-(''),
-(''),
-(''),
-('');
+('CEO', 5000000, 1),
+('COO'),
+('CFO'),
+('General Counsel'),
+('Communications Director'),
+('Executive Assistant'),
+('Political Consultant'), 
+('President of Domestic Operations'),
+('Board Member');
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
-('Siobhan', 'Roy', 1, 2),
 ('Roman', 'Roy', 1, 2),
+('Siobhan', 'Roy', 1, 2),
 ('Kendall', 'Roy', 1, 2),
 ('Connor', 'Roy', 1, 2),
 ('Logan', 'Roy', 1, 2),
