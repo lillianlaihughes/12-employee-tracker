@@ -16,7 +16,6 @@ CREATE TABLE roles (
      FOREIGN KEY (dept_id)
      REFERENCES departments(id)
      ON DELETE SET NULL
-
 );
 
 CREATE TABLE employees (
