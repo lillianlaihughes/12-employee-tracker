@@ -1,17 +1,18 @@
+const { prompt } = require('inquirer');
 const logo = require('asciiart-logo');
+
 const table = require('console.table');
 
-// why is exp or express highlighted diff on leftside?
-const express = require('express');
-
-const prompt = require('inquirer');
 // Import and require mysql2
 const mysql = require('mysql2');
+
+// NOTE TO SELF: why is exp or express highlighted diff on leftside?
+const express = require('express');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Express middleware -- should extended be FALSE or TRUE?
+// NOTE TO SELF: Express middleware -- should extended be FALSE or TRUE?
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -42,6 +43,14 @@ function loadPrompts() {
           value: "VIEW_EMPLOYEES"
         },
         {
+          name: "View employees by department",
+          value: "VIEW_EMPLOYEES_BY_DEPT"
+        },
+        {
+          name: "View employees by manager",
+          value: "VIEW_EMPLOYEES_BY_MGR"
+        },
+        {
           name: "Add a department",
           value: "ADD_DEPARTMENT"
         },
@@ -55,35 +64,15 @@ function loadPrompts() {
         },
         {
           name: "Update an employee role",
-          value: "UPDATE_ROLE"
+          value: "UPDATE_EMPLOYEE_ROLE"
         },
         {
           name: "Update employee manager",
-          value: "UPDATE_MANAGER"
-        },
-        {
-          name: "View employees by manager",
-          value: "VIEW_EMPLOYEES_BY_MANAGER"
+          value: "UPDATE_EMPLOYEE_MANAGER"
         },
         {
           name: "View Total Utilized Budget by Department",
           value: "VIEW_BUDGET_BY_DEPARTMENT"
-        },
-        {
-          name: " ",
-          value: " "
-        },
-        {
-          name: " ",
-          value: " "
-        },
-        {
-          name: " ",
-          value: " "
-        },
-        {
-          name: " ",
-          value: " "
         },
         {
           name: "Quit",
@@ -95,31 +84,27 @@ function loadPrompts() {
     let choice = res.choice;
     // switch to function chosen by user input
     switch (choice) {
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "VIEW_DEPARTMENTS": viewDepartments();
+      break;
+      case "VIEW_ROLES": viewRoles();
       break;
       case "VIEW_EMPLOYEES": viewEmployees();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "VIEW_EMPLOYEES_BY_DEPT": viewEmployeesByDept();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "VIEW_EMPLOYEES_BY_MGR": viewEmployeesByMgr();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "ADD_DEPARTMENT": addDepartment();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "ADD_ROLE": addRole();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "ADD_EMPLOYEE": addEmployees();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "UPDATE_EMPLOYEE_ROLE": updateEmployeeRole();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
+      case "UPDATE_EMPLOYEE_MANAGER": updateEmployeeManager();
       break;
-      case "VIEW_EMPLOYEES": viewEmployees();
-      break;
-      case "VIEW_EMPLOYEES": viewEmployees();
-      break;
-      case "VIEW_EMPLOYEES": viewEmployees();
-      break;case "VIEW_EMPLOYEES": viewEmployees();
-      break;case "VIEW_EMPLOYEES": viewEmployees();
+      case "VIEW_BUDGET_BY_DEPARTMENT": viewEmployees();
       break;
       default: quit();
     }
@@ -136,7 +121,7 @@ function viewEmpByMan() {
         value: id
       }));
 
-      promopt([
+      prompt([
         {
           type: "list",
           name: "managerID",

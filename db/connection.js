@@ -1,5 +1,8 @@
 // check that this is the correct path syntax
 // const db = require('/db'); <---???
+
+const mysql = require('mysql2');
+
 // Connect to database
 const db = mysql.createConnection(
     {

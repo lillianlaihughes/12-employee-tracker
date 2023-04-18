@@ -38,4 +38,4 @@ VALUES
 ('Frank', 'Vernon', 3, 2),
 ('Stewy', 'Hosseini', 9, 4),
 ('Karolina', 'Novotney', 5, 1),
-('Kerry', "Castabelle", 6, 1);
+('Kerry', 'Castellabate', 6, 1);
