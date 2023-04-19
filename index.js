@@ -112,13 +112,13 @@ function loadPrompts() {
 }
 
 // example: View all employees under a certain manager
-function viewEmpByMan() {
+function viewEmployeesByMgr() {
   db.findAllEmployees()
     .then(([rows]) => {
       let managers = rows;
       const managerChoices = managers.map(({ id, first_name, last_name}) => ({
         name: `${first_name} ${last_name}`,
-        value: id
+        value: id   
       }));
 
       prompt([
@@ -129,7 +129,7 @@ function viewEmpByMan() {
           choices: managerChoices
         }
       ])
-      .then(res = db.findAllEmployeesByManager(res.managerID))
+      .then(res = db.findAllEmployeesByMgr(res.managerID))
       .then(([rows]) => {
         let employees = rows;
         console.log("\n");
@@ -141,7 +141,68 @@ function viewEmpByMan() {
       })
     }
     )
-}
+};
   
+// example: View all employees in a certain department
+function viewEmployeesByDept() {
+  db.findAllEmployees()
+    .then(([rows]) => {
+      let departments = rows;
+      const departmentChoices = departments.map(({ id, dept_name}) => ({
+        name: `${dept_name}`,
+        value: id   
+      }));
 
+      prompt([
+        {
+          type: "list",
+          name: "dept_ID",
+          message: "Which department do you want to view?",
+          choices: departmentChoices
+        }
+      ])
+      .then(res = db.findAllEmployeesByDept(res.deptID))
+      .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        if (employees.length === 0) {
+          console.log(`The selected department has no employees.`);
+        } else {
+          console.table(employees);
+        }
+      })
+    }
+    )
+};
 
+// example: View all employees in a certain department
+function viewEmployeesByDept() {
+  db.findAllEmployees()
+    .then(([rows]) => {
+      let departments = rows;
+      const departmentChoices = departments.map(({ id, dept_name}) => ({
+        name: `${dept_name}`,
+        value: id   
+      }));
+
+      prompt([
+        {
+          type: "list",
+          name: "dept_ID",
+          message: "Which department do you want to view?",
+          choices: departmentChoices
+        }
+      ])
+      .then(res = db.findAllEmployeesByDept(res.deptID))
+      .then(([rows]) => {
+        let employees = rows;
+        console.log("\n");
+        if (employees.length === 0) {
+          console.log(`The selected department has no employees.`);
+        } else {
+          console.table(employees);
+        }
+      })
+    }
+    )
+};
