@@ -31,7 +31,3 @@ CREATE TABLE employee (
      REFERENCES employee(id)
      ON DELETE SET NULL
 );
-
-
-
--- I WANT to be able to view and manage the departments, roles, and employees in my company
