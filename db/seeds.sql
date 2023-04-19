@@ -8,7 +8,6 @@ VALUES
 ('Public Relations'),
 ('Amusement Parks'),
 ('Broadcast Media'),
-('Print Media'),
 ('HR');
 
 INSERT INTO roles (role_title, salary, dept_id)
@@ -20,8 +19,7 @@ VALUES
 ('Communications Director', 150000000, 4),
 ('Executive Assistant', 50000000, 1),
 ('Political Consultant', 150000000, 3), 
-('President of Domestic Operations', 150000000, 6),
-('Board Member', 1000000, ?);
+('Domestic Operations VP', 150000000, 6);
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES

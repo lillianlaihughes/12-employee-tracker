@@ -18,10 +18,11 @@ app.use(express.json());
 
 init();
 
-function init () {
+function init() {
     const logoText = logo({ name: 'WayStar RoyCo Employee Manager'}).render();
     console.log(logoText);
-};
+    loadPrompts();
+}
 
 function loadPrompts() {
   prompt([

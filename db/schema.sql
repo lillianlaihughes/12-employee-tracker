@@ -31,3 +31,7 @@ CREATE TABLE employees (
      REFERENCES employees(id)
      ON DELETE CASCADE
 );
+
+
+
+-- I WANT to be able to view and manage the departments, roles, and employees in my company
